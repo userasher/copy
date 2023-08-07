@@ -17,6 +17,8 @@ import ImageUploader from "./pages/ImageUploader";
 import Profile from "./pages/Profile";
 import PasswordReset from "./pages/PasswordReset";
 import ForgotPassword from "./pages/ForgotPassword";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 // import Profile from "./pages/doctor/Profile";
 // import Profile from "./pages/Profile";
 // import ApplyDoctor from "./pages/ApplyDoctor";
@@ -26,6 +28,7 @@ function App() {
 
   return (
     <>
+      <ToastContainer />
       <BrowserRouter>
         {loading ? (
           <Spinner />

@@ -5,6 +5,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { showLoading, hideLoading } from "../redux/features/alertSlice";
+import { toast } from "react-toastify";
 import { Option } from "antd/es/mentions";
 
 import "./LoginStyle.css";
@@ -20,15 +21,15 @@ const Register = () => {
       const res = await axios.post("/api/v1/user/register", values);
       dispatch(hideLoading());
       if (res.data.success) {
-        message.success("Register Successfully!");
+        toast.success("Registered Successfully!");
         navigate("/login");
       } else {
-        message.error(res.data.message);
+        toast.error(res.data.message);
       }
     } catch (error) {
       dispatch(hideLoading());
       console.log(error);
-      message.error("Something Went Wrong");
+      toast.error("Something Went Wrong");
     }
   };
   return (
@@ -145,7 +146,7 @@ const Register = () => {
                     style={{ fontWeight: "bold" }}
                     className="m-2 no-underline"
                   >
-                    Already user login here
+                    Already a user login here
                   </Link>
                   <button
                     className=" bg-blue-400 hover:cursor-pointer hover:bg-blue-700 text-gray-800 font-bold py-2 px-4 rounded w-100 font-weight-bold mt-4"

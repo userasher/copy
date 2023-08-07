@@ -8,6 +8,7 @@ import axios from "axios";
 import "./LoginStyle.css";
 import loacalTrain from "../localtrain.jpg";
 import vjtiimg from "../vjti logo.png";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -17,19 +18,18 @@ const Login = () => {
     try {
       dispatch(showLoading());
       const res = await axios.post("/api/v1/user/login", values);
-      window.location.reload();
       dispatch(hideLoading());
       if (res.data.success) {
         localStorage.setItem("token", res.data.token);
-        message.success("Login Successfully");
+        toast.success("Login Successful");
         navigate("/");
       } else {
-        message.error(res.data.message);
+        toast.error(res.data.message);
       }
     } catch (error) {
       dispatch(hideLoading());
       console.log(error);
-      message.error("something went wrong");
+      toast.error("something went wrong");
     }
   };
   return (
@@ -121,7 +121,7 @@ const Login = () => {
                     class="form-control"
                     type="email"
                     required
-                    placeholder="userb20@vjti.ac.in"
+                    placeholder="user_b20@vjti.ac.in"
                   />
                 </Form.Item>
               </div>

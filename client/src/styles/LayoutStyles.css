@@ -82,9 +82,5 @@
   text-transform: uppercase;
 }
 
-/* mobile view for layout */
-@media (max-width: 600px){
-  .sidebar{
-    display: none;
-  }
-}
+
+

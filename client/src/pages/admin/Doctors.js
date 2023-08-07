@@ -8,7 +8,7 @@ import React, {
 import Layout from "./../../components/Layout";
 import { useReactToPrint } from "react-to-print";
 import axios from "axios";
-import { EyeOutlined, SearchOutlined } from "@ant-design/icons";
+import { FilePdfTwoTone } from "@ant-design/icons";
 import {
   Button,
   Input,
@@ -621,8 +621,8 @@ const Doctors = () => {
       fixed: "right",
       render: (id, record) => (
         <div>
-          <EyeOutlined
-            style={{ cursor: "pointer" }}
+          <FilePdfTwoTone
+            style={{ cursor: "pointer", fontSize: "150%" }}
             onClick={() => {
               setSelectedBill(record);
               setPopupModal(true);
@@ -800,7 +800,7 @@ const Doctors = () => {
                 <span className="prvclass">1st</span>
                 <span className="prvticketno">1234</span>
               </div>
-              <div >
+              <div>
                 <span className="prevfrom">alibag</span>
                 <span className="prevto">nashik</span>
               </div>

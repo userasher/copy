@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { hideLoading, showLoading } from "../redux/features/alertSlice";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const ApplyForm = () => {
   const { user } = useSelector((state) => state.user);
@@ -27,15 +28,15 @@ const ApplyForm = () => {
       );
       dispatch(hideLoading);
       if (res.data.success) {
-        message.success(res.data.success);
+        toast.success("Applied Successfully");
         navigate("/");
       } else {
-        message.error(res.data.success);
+        toast.error(res.data.success);
       }
     } catch (error) {
       dispatch(hideLoading);
       console.log(error);
-      message.error("Something went wrong");
+      toast.error("Something went wrong");
     }
   };
   return (

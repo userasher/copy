@@ -17,7 +17,7 @@ export const userMenu = [
   {
     name: "Apply Form",
     path: "/apply-form",
-    icon: "fa-solid fa-user-doctor",
+    icon: "fa-solid fa-users",
   },
 ];
 
@@ -32,7 +32,7 @@ export const adminMenu = [
   {
     name: "Applicants",
     path: "/admin/doctors",
-    icon: "fa-solid fa-user-doctor",
+    icon: "fa-solid fa-user-check",
   },
   // {
   //   name: "Users Applied",
@@ -42,6 +42,6 @@ export const adminMenu = [
   {
     name: "Generate Pdf ",
     path: "/generate-pdf",
-    icon: "fa-solid fa-user",
+    icon: "fa-solid fa-file-pdf",
   },
 ];

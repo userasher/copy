@@ -6,6 +6,7 @@ const connectDB = require("./config/db");
 const multer = require("multer");
 const { uploadImage } = require("./controllers/adminCtrl");
 const router = require("./routes/userRoutes");
+//
 const path = require("path");
 
 // const ImageModel = require("./models/imageModels");

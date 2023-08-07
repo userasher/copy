@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { hideLoading, showLoading } from "../redux/features/alertSlice";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const NotificationPage = () => {
   const { user } = useSelector((state) => state.user);
@@ -26,14 +27,14 @@ const NotificationPage = () => {
       );
       dispatch(hideLoading());
       if (res.data.success) {
-        message.success(res.data.message);
+        toast.success(res.data.message);
       } else {
-        message.error(res.data.message);
+        toast.error(res.data.message);
       }
     } catch (error) {
       dispatch(hideLoading());
       console.log(error);
-      message.error("something went wrong");
+      toast.error("something went wrong");
     }
   };
 
@@ -54,14 +55,14 @@ const NotificationPage = () => {
       );
       dispatch(hideLoading());
       if (res.data.success) {
-        message.success(res.data.message);
+        toast.success(res.data.message);
       } else {
-        message.error(res.data.message);
+        toast.error(res.data.message);
       }
     } catch (error) {
       dispatch(hideLoading());
       console.log(error);
-      message.error("something went wrong");
+      toast.error("something went wrong");
     }
   };
   return (
@@ -71,7 +72,7 @@ const NotificationPage = () => {
         <Tabs.TabPane tab="UnRead" key={0}>
           <div className="d-flex justify-content-end">
             <button className="p-2 btn btn-success" onClick={handleMarkAllRead}>
-              Mark All Read
+              Mark all read
             </button>
           </div>
           {user?.notifcation.map((notificationMgs) => (

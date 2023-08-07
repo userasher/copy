@@ -19,7 +19,7 @@ const PasswordReset = () => {
         position: "top-center",
       });
     } else if (!email.includes("@")) {
-      toast.warning("includes @ in your email!", {
+      toast.warning("include @ in your email!", {
         position: "top-center",
       });
     } else {
