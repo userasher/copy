@@ -7,6 +7,7 @@ const multer = require("multer");
 const { uploadImage } = require("./controllers/adminCtrl");
 const router = require("./routes/userRoutes");
 const path = require("path");
+
 // const ImageModel = require("./models/imageModels");
 dotenv.config();
 
@@ -25,6 +26,13 @@ app.use(express.static("public"));
 app.use("/api/v1/user", require("./routes/userRoutes"));
 app.use("/api/v1/admin", require("./routes/adminRoutes"));
 // app.use("/api/v1/profile", require("./routes/profileRoutes"));
+
+// static files serving
+app.use(express.static(path.join(__dirname, "./client/build")));
+
+app.get("*", function (req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 
 // /***For uploading ********************* */
 // const storage = multer.diskStorage({
