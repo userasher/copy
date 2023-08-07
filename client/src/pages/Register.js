@@ -141,12 +141,13 @@ const Register = () => {
                       required
                     />
                   </Form.Item>
+                  Already a User ?
                   <Link
                     to="/login"
                     style={{ fontWeight: "bold" }}
                     className="m-2 no-underline"
                   >
-                    Already a user login here
+                    login
                   </Link>
                   <button
                     className=" bg-blue-400 hover:cursor-pointer hover:bg-blue-700 text-gray-800 font-bold py-2 px-4 rounded w-100 font-weight-bold mt-4"
