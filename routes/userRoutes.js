@@ -217,7 +217,7 @@ router.post("/sendpasswordlink", async (req, res) => {
         from: process.env.EMAIL_ID,
         to: email,
         subject: "VJTI Railway Concession / Password Reset",
-        text: `This Link Valid For 2 MINUTES http://localhost:3000/forgotpassword/${userfind.id}/${setusertoken.verifytoken}`,
+        text: `This Link Valid For 2 MINUTES ${req.protocol}://${req.host}/forgotpassword/${userfind.id}/${setusertoken.verifytoken}`,
       };
 
       transporter.sendMail(mailOptions, (error, info) => {

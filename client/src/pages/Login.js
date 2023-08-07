@@ -8,28 +8,49 @@ import axios from "axios";
 import "./LoginStyle.css";
 import loacalTrain from "../localtrain.jpg";
 import vjtiimg from "../vjti logo.png";
-import { toast } from "react-toastify";
 
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   //form handler
+  // const onfinishHandler = async (values) => {
+  //   try {
+  //     dispatch(showLoading());
+  //     const res = await axios.post("/api/v1/user/login", values);
+
+  //     dispatch(hideLoading());
+
+  //     if (res.data.success) {
+  //       localStorage.setItem("token", res.data.token);
+  //       navigate("/");
+
+  //       message.success("Login Successful");
+  //     } else {
+  //       message.error(res.data.message);
+  //     }
+  //   } catch (error) {
+  //     dispatch(hideLoading());
+  //     console.log(error);
+  //     message.error("something went wrong");
+  //   }
+  // };
   const onfinishHandler = async (values) => {
     try {
       dispatch(showLoading());
       const res = await axios.post("/api/v1/user/login", values);
+      location.reload();
       dispatch(hideLoading());
       if (res.data.success) {
         localStorage.setItem("token", res.data.token);
-        toast.success("Login Successful");
+        message.success("Login Successfully");
         navigate("/");
       } else {
-        toast.error(res.data.message);
+        message.error(res.data.message);
       }
     } catch (error) {
       dispatch(hideLoading());
       console.log(error);
-      toast.error("something went wrong");
+      message.error("something went wrong");
     }
   };
   return (
@@ -150,7 +171,7 @@ const Login = () => {
                   />
                 </Form.Item>
               </div>
-              <div class="d-flex align-items-center justify-content-between">
+              <div className="d-flex align-items-center justify-content-between">
                 <Link
                   style={{ fontWeight: "bold" }}
                   to="/password-reset"
@@ -170,13 +191,15 @@ const Login = () => {
               </div>
             </Form>
 
-            <div class="pt-4 text-right mt-2 ">
+            <hr style={{ border: "1px solid black " }}></hr>
+            <div className="d-flex text-right mt-2">
               <Link
                 to="/register"
-                className="bg-blue-500 border-black hover:bg-blue-700 text-white font-bold py-2 px-4 rounded no-underline "
+                className=" border-black  text-black font-bold  "
               >
                 Register
               </Link>
+                        
             </div>
           </div>
         </div>
